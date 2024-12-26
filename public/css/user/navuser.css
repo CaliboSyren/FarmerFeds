@@ -1,0 +1,133 @@
+/* Sidebar Styling */
+body {
+  display: flex;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background: green;
+  position: fixed;
+  transition: width 0.3s ease;
+  padding-top: 25px; /* Adjust to add spacing from the top */
+}
+
+.sidebar .logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px; 
+}
+
+.sidebar .logo {
+  width: 150px; /* Make the logo larger */
+  height: 150px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+/* Navigation Links */
+.sidebar .nav-link {
+  color: white;
+  padding: 20px 15px; /* Reduce padding for a more compact layout */
+  font-size: 18px; /* Increase font size */
+  display: flex;
+  font-weight: bold; 
+  align-items: center;
+  margin-left: 20px;
+}
+
+.sidebar .nav-link i {
+  font-size: 24px; /* Make the icons bigger */
+  margin-right: 15px; /* Space between icon and label */
+}
+
+.sidebar .nav-link .nav-label {
+  display: inline; /* Show text by default */
+}
+
+.sidebar .nav-link:hover {
+  background-color: yellow;
+  color: black;
+}
+
+.sidebar .nav-link .nav-label {
+  transition: opacity 0.3s;
+}
+
+.sidebar .nav-link:hover .nav-label {
+  opacity: 1;
+}
+
+/* Move Logout to the Bottom */
+.sidebar .logout-btn {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  padding: 0;
+}
+
+/* Collapse the sidebar */
+.sidebar.collapsed {
+  width: 60px; /* Reduce width for collapsed state */
+}
+
+.sidebar.collapsed .nav-label {
+  display: none; /* Hide the labels in collapsed state */
+}
+
+.sidebar.collapsed .nav-link i {
+  font-size: 32px; /* Increase icon size when collapsed */
+}
+
+/* Hover effect for logout should match other buttons */
+.sidebar .logout-btn .nav-link:hover {
+  background-color: #e2e6ea;
+}
+
+.main-content {
+  margin-left: 250px;
+  padding: 20px;
+  width: 100%;
+}
+.logout-button {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.logout-button:hover {
+    background-color: yellow;
+    color: black;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 0;
+    display: none;
+  }
+
+  .sidebar.open {
+    width: 250px;
+    display: block;
+  }
+
+  .sidebar .nav-link {
+    text-align: center;
+  }
+
+  .sidebar .nav-link i {
+    font-size: 24px;
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 20px;
+  }
+}
